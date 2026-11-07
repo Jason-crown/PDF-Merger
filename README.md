@@ -1,0 +1,90 @@
+# PDF Merger
+
+A small Python tool for combining several PDF files into one. It has a simple desktop window and a command-line mode, and can include only certain pages from each file.
+
+## Features
+
+- Merge any number of PDFs in the order you choose
+- Choose pages from each file (`1-3,5,8-`), including reversed ranges (`5-1`)
+- Desktop window to add, remove and reorder files
+- Command-line mode for scripts and quick one-off merges
+- Won't save over one of the files being merged
+
+## Requirements
+
+- Python 3.9 or newer
+- [pypdf](https://pypi.org/project/pypdf/)
+- Tkinter (included with the standard Python installers for Windows and macOS)
+
+```
+python -m pip install pypdf
+```
+
+## Usage
+
+### Desktop window
+
+Run the script with no arguments:
+
+```
+python pdf_merger.py
+```
+
+1. Click **Add PDFs…** and select one or more files.
+2. Change the order with **Move up** and **Move down**. Remove a file with **Remove** or the Delete key.
+3. To include only some pages, double-click a file (or select it and click **Set pages…**) and enter a page list. Leave it blank to include every page.
+4. Click **Merge →** and choose where to save the result.
+
+### Command line
+
+```
+python pdf_merger.py -o merged.pdf a.pdf b.pdf c.pdf
+```
+
+To pick pages, add `:pages` after a file name:
+
+```
+python pdf_merger.py -o merged.pdf intro.pdf "report.pdf:2-4,7" appendix.pdf:1
+```
+
+| Option | Description |
+| --- | --- |
+| `inputs` | One or more PDF files, each with an optional `:pages` suffix |
+| `-o`, `--output` | Output file (default: `merged.pdf`) |
+
+## Page ranges
+
+Page numbers start at 1. Separate parts with commas.
+
+| Range | Meaning |
+| --- | --- |
+| *(blank)* | All pages |
+| `3` | Page 3 only |
+| `2-5` | Pages 2 to 5 |
+| `8-` | Page 8 to the last page |
+| `-3` | Pages 1 to 3 |
+| `5-1` | Pages 5 to 1, in reverse order |
+| `1-3,7,10-` | Combination of the above |
+
+Pages can be listed more than once, and they're added in the order you write them.
+
+## Limitations
+
+- Password-protected PDFs can't be opened. Remove the password first.
+- Bookmarks and form fields from the input files aren't carried over to the merged file.
+
+## Project structure
+
+```
+PDF_merger/
+├── pdf_merger.py   # Merge logic, command-line interface and desktop window
+└── README.md
+```
+
+The merge logic lives in `merge_pdfs()` and `parse_pages()`, so you can also import them from other Python code:
+
+```python
+from pdf_merger import merge_pdfs
+
+merge_pdfs([("a.pdf", ""), ("b.pdf", "2-3")], "merged.pdf")
+```
