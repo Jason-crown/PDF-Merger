@@ -1,14 +1,14 @@
 # PDF Merger
 
-A small Python tool for combining several PDF files into one. It has a simple desktop window and a command-line mode, and can include only certain pages from each file.
+A small application written using Python that allows users to merge multiple PDF documents into a single document. This is accomplished by utilizing a very easy-to-use desktop interface, as well as an easily accessible command line interface. The user also has the ability to select which individual pages they would like to take from each original PDF document.
 
-## Features
+## Functionality
 
-- Merge any number of PDFs in the order you choose
-- Choose pages from each file (`1-3,5,8-`), including reversed ranges (`5-1`)
-- Desktop window to add, remove and reorder files
-- Command-line mode for scripts and quick one-off merges
-- Won't save over one of the files being merged
+• Merge multiple PDF documents together in whatever order the user selects 
+• Select pages to be included from each document (i.e., "1-3,5,8-" ), including the option to specify a reverse page range ("5-1") 
+• Use the desktop GUI to add/remove/reorder PDF documents 
+• Utilize the command line to quickly write a script or perform a one-time merge 
+• Will NOT overwrite any of the documents currently being merged
 
 ## Requirements
 
