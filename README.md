@@ -67,12 +67,13 @@ Page numbers start at 1. Separate parts with commas.
 | `5-1` | Pages 5 to 1, in reverse order |
 | `1-3,7,10-` | Combination of the above |
 
-Pages can be listed more than once, and they're added in the order you write them.
+You can list a page multiple times (they are added in the order you add them).
 
 ## Limitations
 
-- Password-protected PDFs can't be opened. Remove the password first.
-- Bookmarks and form fields from the input files aren't carried over to the merged file.
+You cannot open PDF documents that are protected with a password. First remove the password protection so you may open the document for merging.
+
+The bookmarks and fillable forms from the original PDF's are NOT retained when creating the new merged PDF document.
 
 ## Project structure
 
