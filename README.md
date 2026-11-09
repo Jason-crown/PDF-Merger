@@ -30,10 +30,11 @@ Run the script with no arguments:
 python pdf_merger.py
 ```
 
-1. Click **Add PDFs…** and select one or more files.
-2. Change the order with **Move up** and **Move down**. Remove a file with **Remove** or the Delete key.
-3. To include only some pages, double-click a file (or select it and click **Set pages…**) and enter a page list. Leave it blank to include every page.
-4. Click **Merge →** and choose where to save the result.
+
+1. Select one or more files by clicking **Add PDFs...**
+2. Use **Move Up** and **Move Down** to reorder your selected pdf documents; remove them using **Remove** (or delete). 
+3. If you wish to limit which of your pdf document's pages are included in the output, after selecting one of the pdf documents (you can do this either by double clicking on the pdf document name or by first selecting the pdf document name and then clicking **Set Pages...**) enter a page number range. Leave that field blank if you want to use all the pages from each pdf document.
+4. Click Merge → and choose where to save the result.
 
 ### Command line
 
